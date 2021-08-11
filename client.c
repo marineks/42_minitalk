@@ -6,28 +6,26 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/10 12:15:28 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/08/10 17:08:38 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/08/11 18:11:52 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../minitalk.h"
+#include "minitalk.h"
 
-int main(int argc, char **argv)
+// signal handler pour reception:
+void reception_handler(int signal)
 {
-	int pid = getpid();
-	printf("coucou cest l'id : %d\n", pid);
-	// if (pid == -1)
-	// 	return (ERROR);
-	// if (pid == 0)
-	// {
-	// 	// Child process
-	// 	usleep(600);
-	// 	// kill(getpid(), SIGUSR1);
-	// } else {
-	// 	// Parent process
-	// 	printf("coucou cest l'id : %d\n", pid);
-		
-	// }
+	if (signal == SIGUSR1)
+	{
+		write(1, "Received SIGUSR1!\n", 18);
+	}
+}
+
+int main(void) //int argc, char **argv
+{
+	signal(SIGUSR1, reception_handler);
+	raise(SIGUSR1);
+	// pause();
 	return (0);
 }
 
