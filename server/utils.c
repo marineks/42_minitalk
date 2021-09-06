@@ -1,40 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   client.c                                           :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/10 12:15:28 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/08/11 18:11:52 by msanjuan         ###   ########.fr       */
+/*   Created: 2021/09/06 13:52:58 by msanjuan          #+#    #+#             */
+/*   Updated: 2021/09/06 14:06:54 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minitalk.h"
+#include "../minitalk.h"
 
-// signal handler pour reception:
-void reception_handler(int signal)
+void	ft_putchar(char c)
 {
-	if (signal == SIGUSR1)
+	write(1, &c, 1);
+}
+void	ft_putnbr_dec(int n)
+{
+	if (n == -2147483648)
+		write(1, "-2147483648", 11);
+	else if (n >= 0 && n <= 9)
+		ft_putchar(n + '0');
+	else if (n < 0)
 	{
-		write(1, "Received SIGUSR1!\n", 18);
+		write(1, "-", 1);
+		ft_putnbr_dec(n * -1);
+	}
+	else if (n >= 0 && n > 9)
+	{
+		ft_putnbr_dec(n / 10);
+		ft_putnbr_dec(n % 10);
 	}
 }
-
-int main(void) //int argc, char **argv
-{
-	signal(SIGUSR1, reception_handler);
-	raise(SIGUSR1);
-	// pause();
-	return (0);
-}
-
-/* 
-
-Kill command : ne sert pas qu'à tuer, permet de faire differentes actions,
-comme envoyer un signal
-PID = process id
-
-
-
-*/

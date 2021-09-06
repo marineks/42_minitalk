@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   client.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/10 16:37:12 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/09/06 15:19:33 by msanjuan         ###   ########.fr       */
+/*   Created: 2021/08/10 12:15:28 by msanjuan          #+#    #+#             */
+/*   Updated: 2021/09/06 14:54:51 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINITALK_H
-# define MINITALK_H
+#include "../minitalk.h"
 
-#define ERROR -1
-#define SUCCESS 0
+int main(int argc, char **argv) 
+{
 
-# include <stdlib.h>
-# include <stdio.h>
-# include <signal.h>
-# include <unistd.h>
-
-
-// UTILS.C SERVER
-void	ft_putnbr_dec(int n);
-void	ft_putchar(char c);
-// UTILS.C CLIENT
-int	ft_atoi(const char *str);
-#endif
+	if (argc == 2)
+	{
+		int pid = ft_atoi(argv[1]);
+		// signal(SIGUSR1, reception_handler);
+		if (kill(pid, SIGUSR1) == SUCCESS)
+			write(1, "Signal envoyé\n", 15);
+		else
+			write(1, "KO.\n", 3);
+		// pause();
+	}
+	
+	return (0);
+}
