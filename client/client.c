@@ -6,7 +6,7 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/10 12:15:28 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/09/06 18:59:00 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/09/07 11:19:59 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	convertCharToBits(int pid, char c)
 	{
 		if (c & (1 << bit_index))
 		{
-			if (kill(pid, SIGUSR2) == SUCCESS)
+			if (kill(pid, SIGUSR1) == SUCCESS)
 			{
 				write(1, "Signal '1' envoyé\n", 19);
 				usleep(100);
@@ -30,7 +30,7 @@ void	convertCharToBits(int pid, char c)
 		}	
 		else
 		{
-			if (kill(pid, SIGUSR1) == SUCCESS)
+			if (kill(pid, SIGUSR2) == SUCCESS)
 			{
 				write(1, "Signal '0' envoyé\n", 19);
 				usleep(100);
