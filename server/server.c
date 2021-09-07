@@ -6,15 +6,26 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/10 12:15:34 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/09/07 16:33:41 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/09/07 17:07:39 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minitalk.h"
 
+int		ft_pow(int nb, int power)
+{
+	if (power == 0)
+		return (1);
+	else if (power < 0)
+		return (0);
+	else if (power > 0)
+		return (nb *= ft_pow(nb, power - 1));
+	else
+		return (1);
+}
+
 void	convertBintoChar(int *bin_array)
 {
-	int	pos[8] = {128, 64, 32, 16, 8, 4, 2, 1};
 	int	i;
 	int	result;
 
@@ -22,7 +33,7 @@ void	convertBintoChar(int *bin_array)
 	while (i < 8)
 	{
 		if (bin_array[i] == 1)
-			result += pos[i];
+			result += ft_pow(2, (7 - i));
 		i++;
 	}
 	write(1, &result, 1);
@@ -58,9 +69,9 @@ int main(void)
 	while (1)
 	{	
 		if (sigaction(SIGUSR1, &sa, NULL) == ERROR)
-			write(1, "KO\n", 3);
+			write(1, "Reception of the signal failed\n", 31);
 		if (sigaction(SIGUSR2, &sa, NULL) == ERROR)
-			write(1, "KO\n", 3);	
+			write(1, "Reception of the signal failed\n", 31);	
 	}
 	return (0);
 }
