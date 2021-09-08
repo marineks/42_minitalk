@@ -6,7 +6,7 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/06 13:52:58 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/09/06 14:06:54 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/09/08 11:44:40 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void	ft_putchar(char c)
 {
 	write(1, &c, 1);
 }
+
 void	ft_putnbr_dec(int n)
 {
 	if (n == -2147483648)
