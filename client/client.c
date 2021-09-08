@@ -6,7 +6,7 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/10 12:15:28 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/09/08 11:58:41 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/09/08 14:13:31 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	main(int argc, char **argv)
 		i = 0;
 		while (strToSend[i])
 			convertCharToBits(pid, strToSend[i++]);
-		write(1, "Message sent\n\n", 14);
+		write(1, "Message received by the server\n\n", 32);
 	}
 	else if (argc == 1)
 		write(1, "Please fill in the PID and the string to be sent.\n", 50);
