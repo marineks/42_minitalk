@@ -6,7 +6,7 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/10 12:15:28 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/09/07 17:11:25 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/09/08 10:16:30 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,14 @@ void	convertCharToBits(int pid, char c)
 		if (c & (1 << bit_index))
 		{
 			if (kill(pid, SIGUSR1) == SUCCESS)
-				usleep(800);
+				usleep(100);
 			else
 				write(1, "Kill function failed\n", 21);
 		}	
 		else
 		{
 			if (kill(pid, SIGUSR2) == SUCCESS)
-				usleep(800);
+				usleep(100);
 			else
 				write(1, "Kill function failed\n", 21);
 		}
@@ -47,7 +47,7 @@ int main(int argc, char **argv)
 
 		while (strToSend[i])
 			convertCharToBits(pid, strToSend[i++]);
-		write(1, "Message envoyé\n", 15);
+		write(1, "Message envoyé\n\n", 16);
 	}
 	else if (argc == 1)
 		write(1, "Please fill in the PID and the string you want to send.\n", 56);
