@@ -6,7 +6,7 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/10 12:15:28 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/09/08 10:16:30 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/09/08 11:24:10 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ void	convertCharToBits(int pid, char c)
 
 int main(int argc, char **argv) 
 {
-
 	if (argc == 3)
 	{
 		int pid = ft_atoi(argv[1]);
