@@ -6,23 +6,11 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/10 12:15:34 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/09/08 11:44:16 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/09/08 12:04:08 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minitalk.h"
-
-int	ft_pow(int nb, int power)
-{
-	if (power == 0)
-		return (1);
-	else if (power < 0)
-		return (0);
-	else if (power > 0)
-		return (nb *= ft_pow(nb, power - 1));
-	else
-		return (1);
-}
 
 void	convertBintoChar(int *bin_array)
 {

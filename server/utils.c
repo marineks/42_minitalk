@@ -6,7 +6,7 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/06 13:52:58 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/09/08 11:44:40 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/09/08 12:04:13 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,4 +33,16 @@ void	ft_putnbr_dec(int n)
 		ft_putnbr_dec(n / 10);
 		ft_putnbr_dec(n % 10);
 	}
+}
+
+int	ft_pow(int nb, int power)
+{
+	if (power == 0)
+		return (1);
+	else if (power < 0)
+		return (0);
+	else if (power > 0)
+		return (nb *= ft_pow(nb, power - 1));
+	else
+		return (1);
 }
