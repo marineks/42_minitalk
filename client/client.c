@@ -6,7 +6,7 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/10 12:15:28 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/09/08 11:24:10 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/09/08 11:58:41 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 void	convertCharToBits(int pid, char c)
 {
-	int bit_index;
+	int	bit_index;
+
 	bit_index = 7;
 	while (bit_index >= 0)
 	{
@@ -36,23 +37,27 @@ void	convertCharToBits(int pid, char c)
 	}
 }
 
-int main(int argc, char **argv) 
+int	main(int argc, char **argv)
 {
+	int		pid;
+	char	*strToSend;
+	int		i;
+
 	if (argc == 3)
 	{
-		int pid = ft_atoi(argv[1]);
-		char *strToSend = argv[2];
-		int i = 0;
-
+		pid = ft_atoi(argv[1]);
+		strToSend = argv[2];
+		i = 0;
 		while (strToSend[i])
 			convertCharToBits(pid, strToSend[i++]);
-		write(1, "Message envoyé\n\n", 16);
+		write(1, "Message sent\n\n", 14);
 	}
 	else if (argc == 1)
-		write(1, "Please fill in the PID and the string you want to send.\n", 56);
+		write(1, "Please fill in the PID and the string to be sent.\n", 50);
 	else if (argc == 2)
-		write(1, "Please type a string of characters to send to the server.\n", 58);
+		write(1, "Please type a string of characters to send to the server.\n",
+			58);
 	else
-		write(1, "This program only accepts two arguments: the server's PID and the string to send.\n", 82);
+		write(1, "This program only accepts 2 arguments (PID + string)\n", 82);
 	return (0);
 }
