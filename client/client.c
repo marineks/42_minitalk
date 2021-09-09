@@ -6,7 +6,7 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/10 12:15:28 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/09/08 14:13:31 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/09/09 16:05:40 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,14 @@ void	convertCharToBits(int pid, char c)
 		if (c & (1 << bit_index))
 		{
 			if (kill(pid, SIGUSR1) == SUCCESS)
-				usleep(100);
+				usleep(TIME);
 			else
 				write(1, "Kill function failed\n", 21);
 		}	
 		else
 		{
 			if (kill(pid, SIGUSR2) == SUCCESS)
-				usleep(100);
+				usleep(TIME);
 			else
 				write(1, "Kill function failed\n", 21);
 		}

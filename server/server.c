@@ -6,7 +6,7 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/10 12:15:34 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/09/09 10:49:32 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/09/09 16:24:01 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,21 +47,18 @@ void	reception_handler(int signal)
 
 int	main(void)
 {
-	int					pid;
 	struct sigaction	sa;
 
-	pid = getpid();
 	sa.sa_handler = reception_handler;
 	sa.sa_flags = 0;
-	write(1, "ID : ", 5);
-	ft_putnbr_dec(pid);
-	write(1, "\n", 1);
+	print_pid();
 	while (1)
 	{	
 		if (sigaction(SIGUSR1, &sa, NULL) == ERROR)
 			write(1, "Reception of the signal failed\n", 31);
 		if (sigaction(SIGUSR2, &sa, NULL) == ERROR)
 			write(1, "Reception of the signal failed\n", 31);
+		pause();
 	}
 	return (0);
 }
