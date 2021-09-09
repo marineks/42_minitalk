@@ -6,7 +6,7 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/10 12:15:34 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/09/08 14:14:01 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/09/09 10:49:32 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ int	main(void)
 
 	pid = getpid();
 	sa.sa_handler = reception_handler;
+	sa.sa_flags = 0;
 	write(1, "ID : ", 5);
 	ft_putnbr_dec(pid);
 	write(1, "\n", 1);
