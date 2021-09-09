@@ -6,7 +6,7 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/10 16:37:12 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/09/08 12:05:23 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/09/09 10:42:46 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,12 @@
 
 # define ERROR -1
 # define SUCCESS 0
+
+// # if defined __APPLE__ || defined __MACH__
+// #  define TIME 100
+// # else
+// #  define TIME 400
+// # endif
 
 # include <stdlib.h>
 # include <stdio.h>
