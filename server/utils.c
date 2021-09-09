@@ -6,7 +6,7 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/06 13:52:58 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/09/09 15:23:06 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/09/09 17:04:32 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	ft_pow(int nb, int power)
 		return (1);
 }
 
-void	print_pid()
+void	print_pid(void)
 {
 	int	pid;
 
