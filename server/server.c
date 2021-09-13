@@ -6,13 +6,13 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/10 12:15:34 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/09/09 16:24:01 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/09/13 15:30:03 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minitalk.h"
 
-void	convertBintoChar(int *bin_array)
+void	convert_bin_to_char(int *bin_array)
 {
 	int	i;
 	int	result;
@@ -52,12 +52,12 @@ int	main(void)
 	sa.sa_handler = reception_handler;
 	sa.sa_flags = 0;
 	print_pid();
+	if (sigaction(SIGUSR1, &sa, NULL) == ERROR)
+		write(1, "Reception of the signal failed\n", 31);
+	if (sigaction(SIGUSR2, &sa, NULL) == ERROR)
+		write(1, "Reception of the signal failed\n", 31);
 	while (1)
-	{	
-		if (sigaction(SIGUSR1, &sa, NULL) == ERROR)
-			write(1, "Reception of the signal failed\n", 31);
-		if (sigaction(SIGUSR2, &sa, NULL) == ERROR)
-			write(1, "Reception of the signal failed\n", 31);
+	{
 		pause();
 	}
 	return (0);
