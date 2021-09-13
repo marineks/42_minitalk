@@ -6,13 +6,13 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/10 12:15:28 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/09/09 16:05:40 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/09/13 15:28:35 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minitalk.h"
 
-void	convertCharToBits(int pid, char c)
+void	convert_char_to_bits(int pid, char c)
 {
 	int	bit_index;
 
@@ -40,7 +40,7 @@ void	convertCharToBits(int pid, char c)
 int	main(int argc, char **argv)
 {
 	int		pid;
-	char	*strToSend;
+	char	*str_to_send;
 	int		i;
 
 	if (argc == 3)
